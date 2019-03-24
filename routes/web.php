@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $data = [
+    'comments' => App\Comment::latest()->paginate(15)
+  ];
+
+  return view('welcome',$data);
 });
 
 Auth::routes();
