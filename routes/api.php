@@ -13,6 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Endpoint that returns an array with the last 10 comments of an account
+Route::get('user/{userId}/last-comments','Api\UserCommentsController@show')->name('user/last-comments');
