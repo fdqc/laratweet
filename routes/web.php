@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Comments routes
+Route::post('comments/store','CommentsController@store')->name('comments/store');
