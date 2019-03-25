@@ -63,6 +63,9 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                      <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">Profile</a>
+                                    </li>
                                 </ul>
                             </li>
                         @endguest
