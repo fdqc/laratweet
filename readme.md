@@ -1,58 +1,86 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## About this Project
 
-## About Laravel
+This is a Twitter like app made with Laravel 5.5. For the moment it allows to:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+- Access a route: *api/user/{userId}/last-comments* to get the latest 10 comments that the user created.
+- See a list of all the comments in the app.
+- Register into the system.
+- Login and create new comments.
+- Follow and stop following a user.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## How to test
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+1. First you need to download or clone the repository, for example:
 
-## Learning Laravel
+```git
+	git clone https://github.com/fdqc/laratweet.git
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+2. Then enter into the folder
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+```shell
+	cd laratweet
+```
 
-## Laravel Sponsors
+3. After that run:
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+```shell
+    composer install
+    cp .env.example .env
+    php artisan key:generate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+4. Create a new database, for example on MySQL shell run:
 
-## Contributing
+```mysql
+	create database laratweet;
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Now edit .env file to match your MySQL configuration:
 
-## Security Vulnerabilities
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=laratweet
+   DB_USERNAME=root
+   DB_PASSWORD=root
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. After that, you should be able to run:
+
+```shell
+    php artisan migrate
+    php artisan db:seed
+```
+
+## Testing the App
+
+Inside the project's folder run:
+
+```shell
+php artisan serve
+```
+
+This will serve the application on the PHP development server at http://127.0.0.1:8000.
+
+Now open your favorite web browser, go to http://127.0.0.1:8000 and you should be able to test the app. Accessing http://127.0.0.1:8000/api/user/2/last-comments should get you an array of 10 elements with the following format:
+
+{
+
+```json
+	"created_at": "Mon Mar 25 02:17:06 +0000 2019",
+	"text": "Non iusto exercitationem aliquam ut aut earum. Quae suscipit illum minus quis consequatur. Aperiam ut ipsum quia et.",
+	"in_reply": {
+		"id": 4,
+		"name": "Charity Mueller"
+	}
+}
+```
+
+Go to http://127.0.0.1:8000 and create register yourself. Once logged in, you'll be able to add new comments.
+
+Finally, enjoy!
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
