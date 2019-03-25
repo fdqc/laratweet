@@ -25,3 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Comments routes
 Route::post('comments/store','CommentsController@store')->name('comments/store');
+
+// Profile routes
+Route::get('profile/{id}','ProfilesController@show')->name('profile');
+
+// Follow routes
+Route::get('follow/{id}','FollowersController@follow')->name('follow');
+Route::get('unfollow/{id}','FollowersController@unfollow')->name('unfollow');
