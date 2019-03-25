@@ -30,10 +30,30 @@ class User extends Authenticatable
     /**
      * Gets user's comments
      *
-     * @return Comment collection
+     * @return Comment instances collection
      */
     public function comments()
     {
       return $this->hasMany('App\Comment');
+    }
+
+    /**
+     * undocumented function summary
+     *
+     * @return User instances collection
+     */
+    public function followers()
+    {
+      return $this->belongsToMany('App\User','followers','user_id','follower_id');
+    }
+
+    /**
+     * undocumented function summary
+     *
+     * @return User instances collection
+     */
+    public function follows()
+    {
+      return $this->belongsToMany('App\User','followers','follower_id','user_id');
     }
 }
