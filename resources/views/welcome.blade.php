@@ -15,7 +15,11 @@
               @foreach ($comments as $comment)
               <li class="media">
                 <div class="media-body">
-                  <h4 class="media-heading">{{ $comment->user->name }}</h4>
+                  <h4 class="media-heading">
+                    <a href="{{ route('profile', ['id' => $comment->user->id]) }}">
+                      {{ $comment->user->name }}
+                    </a>
+                  </h4>
                   {{ $comment->text }}
                 </div>
               </li><hr>
