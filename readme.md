@@ -65,9 +65,9 @@ This will serve the application on the PHP development server at http://127.0.0.
 
 Now open your favorite web browser, go to http://127.0.0.1:8000 and you should be able to test the app. Accessing http://127.0.0.1:8000/api/user/2/last-comments should get you an array of 10 elements with the following format:
 
-{
 
 ```json
+{
 	"created_at": "Mon Mar 25 02:17:06 +0000 2019",
 	"text": "Non iusto exercitationem aliquam ut aut earum. Quae suscipit illum minus quis consequatur. Aperiam ut ipsum quia et.",
 	"in_reply": {
