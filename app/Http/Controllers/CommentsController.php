@@ -44,7 +44,7 @@ class CommentsController extends Controller
 
       Auth::user()->comments()->save($comment);
 
-      return redirect()->route('home')->with('status', 'Comment created!');;
+      return redirect()->route('home')->with('status', 'Comment created!');
     }
 
     /**
