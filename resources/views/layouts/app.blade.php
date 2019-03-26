@@ -37,6 +37,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li class="{{ (Route::is('home')) ? 'active' : '' }}">
+                          <a href="{{ route('home') }}">Home</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -52,20 +55,20 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                                  <li>
+                                    <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">Profile</a>
+                                  </li>
+                                  <li>
+                                      <a href="{{ route('logout') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                          Logout
+                                      </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                    <li>
-                                      <a href="{{ route('profile', ['id' => Auth::user()->id]) }}">Profile</a>
-                                    </li>
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                          {{ csrf_field() }}
+                                      </form>
+                                  </li>
                                 </ul>
                             </li>
                         @endguest
