@@ -8,8 +8,9 @@ This is a Twitter like app made with Laravel 5.5. For the moment it allows to:
 - Register into the system.
 - Login and create new comments.
 - Follow and stop following a user.
+- See a list of a user's followers and followed users.
 
-## How to test
+## How to run the Project
 
 1. First you need to download or clone the repository, for example:
 
@@ -40,10 +41,15 @@ This is a Twitter like app made with Laravel 5.5. For the moment it allows to:
 5. Now edit .env file to match your MySQL configuration:
 
    DB_CONNECTION=mysql
+
    DB_HOST=127.0.0.1
+
    DB_PORT=3306
+
    DB_DATABASE=laratweet
+
    DB_USERNAME=root
+
    DB_PASSWORD=root
 
 6. After that, you should be able to run:
@@ -53,7 +59,7 @@ This is a Twitter like app made with Laravel 5.5. For the moment it allows to:
     php artisan db:seed
 ```
 
-## Testing the App
+## Serving the App
 
 Inside the project's folder run:
 
