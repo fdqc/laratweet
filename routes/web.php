@@ -28,8 +28,8 @@ Route::post('comments/store','CommentsController@store')->name('comments/store')
 
 // Profile routes
 Route::get('profile/{id}','ProfilesController@show')->name('profile');
-Route::get('profile/{id}/followers','ProfilesController@followers')->name('profile/followers');
-Route::get('profile/{id}/follows','ProfilesController@follows')->name('profile/follows');
+Route::get('profile/{id}/followers','FollowersController@followers')->name('profile/followers');
+Route::get('profile/{id}/follows','FollowersController@follows')->name('profile/follows');
 
 // Follow routes
 Route::get('follow/{id}','FollowersController@follow')->name('follow');
