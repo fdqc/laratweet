@@ -9,34 +9,39 @@ use App\User;
 class ProfilesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Returns a list of users that are
+     * following the provided user.
      *
-     * @return \Illuminate\Http\Response
+     * @param int $id user's id
+     * @return Response
      */
-    public function index()
+    public function followers($id)
     {
-        //
+      $data = [
+        'user' => User::findOrFail($id),
+        'follows' => User::findOrFail($id)->followers,
+        'title' => 'Followers'
+      ];
+
+      return view('profiles.follow',$data);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Returns a list of users that being
+     * followed by the provided user.
      *
-     * @return \Illuminate\Http\Response
+     * @param int $id user's id
+     * @return Response
      */
-    public function create()
+    public function follows($id)
     {
-        //
-    }
+      $data = [
+        'user' => User::findOrFail($id),
+        'follows' => User::findOrFail($id)->follows,
+        'title' => 'Follows'
+      ];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+      return view('profiles.follow',$data);
     }
 
     /**
