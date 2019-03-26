@@ -16,6 +16,9 @@
             @endif
           </p>
           @endif
+
+          <a href="{{ route('profile/follows', ['id' => $user->id]) }}">Following <span class="label label-default">{{ $user->follows->count() }}</span> </a>
+          <a href="{{ route('profile/followers', ['id' => $user->id]) }}">Followers <span class="label label-default">{{ $user->followers->count() }}</span> </a>
         </div>
         @if (session('status'))
           <div class="alert alert-success">
