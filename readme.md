@@ -69,7 +69,7 @@ php artisan serve
 
 This will serve the application on the PHP development server at http://127.0.0.1:8000.
 
-Now open your favorite web browser, go to http://127.0.0.1:8000 and you should be able to test the app. Accessing http://127.0.0.1:8000/api/user/2/last-comments should get you an array of 10 elements with the following format:
+Now open your favorite web browser, go to http://127.0.0.1:8000 and you should be able to use the app. Accessing http://127.0.0.1:8000/api/user/2/last-comments should get you an array of 10 elements with the following format:
 
 
 ```json
@@ -86,6 +86,34 @@ Now open your favorite web browser, go to http://127.0.0.1:8000 and you should b
 Go to http://127.0.0.1:8000 and create register yourself. Once logged in, you'll be able to add new comments.
 
 Finally, enjoy!
+
+## Running some Tests
+
+The application has tests written to work with Laravel Dusk. 
+
+The first test confirms that when you visit http://127.0.0.1:8000 you are not redirected, while the second test that a user logs into the application and then writes a comment.
+
+To successfully run the tests you need to:
+
+- Update your .env file with the `APP_URL` environment variable to match the URL you use to access your application in a browser. 
+
+  For this example: APP_URL = http://127.0.0.1:8000
+
+- Be sure that the database has at least one user.
+
+Now, serve the application with
+
+```shell
+php artisan serve
+```
+
+Open another tab in the terminal and run the dusk command
+
+```shell
+php artisan dusk
+```
+
+This should run both tests and pass.
 
 ## License
 
