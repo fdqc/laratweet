@@ -9,42 +9,6 @@ use App\User;
 class ProfilesController extends Controller
 {
     /**
-     * Returns a list of users that are
-     * following the provided user.
-     *
-     * @param int $id user's id
-     * @return Response
-     */
-    public function followers($id)
-    {
-      $data = [
-        'user' => User::findOrFail($id),
-        'follows' => User::findOrFail($id)->followers,
-        'title' => 'Followers'
-      ];
-
-      return view('profiles.follow',$data);
-    }
-
-    /**
-     * Returns a list of users that being
-     * followed by the provided user.
-     *
-     * @param int $id user's id
-     * @return Response
-     */
-    public function follows($id)
-    {
-      $data = [
-        'user' => User::findOrFail($id),
-        'follows' => User::findOrFail($id)->follows,
-        'title' => 'Follows'
-      ];
-
-      return view('profiles.follow',$data);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
